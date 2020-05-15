@@ -6,3 +6,4 @@ pages:
     - npm run build
   only:
     - master
+    
