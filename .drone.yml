@@ -1,11 +1,18 @@
-pages:
+kind: pipeline
+name: testing
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: pages
   image: node:latest
   stage: deploy
-  script:
+  commands:
     - npm ci
     - npm run build
   only:
     - master
-
 
 
