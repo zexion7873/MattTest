@@ -6,12 +6,11 @@ platform:
   arch: amd64
 
 steps:
-- name: pages
+- name: testing
   image: node:latest
-  stage: deploy
   commands:
-    - npm ci
-    - npm run build
+    - yarn install
+    - yarn build
   only:
     - master
 
