@@ -13,5 +13,3 @@ steps:
     - yarn build
   only:
     - master
-
-
