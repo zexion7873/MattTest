@@ -1,0 +1,8 @@
+pages:
+  image: node:latest
+  stage: deploy
+  script:
+    - npm ci
+    - npm run build
+  only:
+    - master
