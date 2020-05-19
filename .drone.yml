@@ -1,14 +1,10 @@
 kind: pipeline
-type: docker
 name: drone-pipeline_test
 
-platform:
-  os: linux
-  arch: arm
 
 steps:
 - name: node-build
-  image: node:latest
+  image: alpine
   commands:
     - echo "hellow world"
     - echo "success"
