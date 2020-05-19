@@ -10,5 +10,5 @@ steps:
 - name: node-build
   image: node:latest
   commands:
-    - npm ci
-    - npm run build
+    - echo "hellow world"
+    - echo "success"
