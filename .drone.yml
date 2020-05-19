@@ -1,15 +1,9 @@
 kind: pipeline
-name: testing
-
-platform:
-  os: linux
-  arch: amd64
+name: drone-pipeline_test
 
 steps:
-- name: testing
+- name: node-build
   image: node:latest
   commands:
-    - yarn install
-    - yarn build
-  only:
-    - master
+    - npm ci
+    - npm run build
