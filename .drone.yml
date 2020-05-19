@@ -1,10 +1,10 @@
 kind: pipeline
-name: drone-pipeline_test
+type: docker
+name: default
 
 
 steps:
 - name: node-build
-  image: alpine
+  image: node
   commands:
-    - echo "hellow world"
-    - echo "success"
+    - npm install
