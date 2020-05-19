@@ -12,4 +12,9 @@ steps:
   commands:
     - npm ci
     - npm run build
-    
+
+- name: show-echo
+  image: alpine
+  commands:
+    - echo "build success"
+    - echo "good job"
