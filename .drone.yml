@@ -1,24 +1,16 @@
-kind: pipeline
-type: docker
-name: Drone-Test
+pipeline:
+  node-build:
+    image: node:latest
+    commands:
+      - npm ci
+      - npm run build
 
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: node-build
-  image: node:latest
-  commands:
-    - npm ci
-    - npm run build
-
-- name: show-echo
-  image: alpine
-  commands:
-    - echo "build success"
-    - echo "good job"
-    - echo "nice"
+  show-echo:
+    image: alpine
+    commands:
+      - echo "build success"
+      - echo "good job"
+      - echo "nice"
 
 services:
   hub:
