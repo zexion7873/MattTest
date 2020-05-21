@@ -20,7 +20,7 @@ steps:
   pull: always
   settings:
     username:
-      from_secret: sarmiley@gmail.com
+      from_secret: sarmiley
     password:
       from_secret: Sarmiley1989
     pages_directory: dist
