@@ -9,14 +9,19 @@ platform:
 steps:
 - name: node-build
   image: node:latest
+  environment:
+    NODE_ENV: gh-pages
   commands:
     - npm ci
     - npm run build
-    - docker cp dist cicd_nginx_1:/usr/share/nginx/html
 
-- name: show-echo
-  image: alpine
-  commands:
-    - echo "build success"
-    - echo "good job"
-    - echo "nice"
+- name: publish
+  image: appleboy/gh-pages
+  pull: always
+  settings:
+    username:
+      from_secret: sarmiley@gmail.com
+    password:
+      from_secret: Sarmiley1989
+    pages_directory: dist
+    target_directory: 2020
