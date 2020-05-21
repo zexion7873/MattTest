@@ -20,8 +20,8 @@ steps:
   pull: always
   settings:
     username:
-      from_secret: sarmiley
+      from_secret: username
     password:
-      from_secret: Sarmiley1989
+      from_secret: password
     pages_directory: dist
     target_directory: 2020
