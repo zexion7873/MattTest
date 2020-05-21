@@ -4,7 +4,7 @@ pipeline:
     commands:
       - npm ci
       - npm run build
-      - docker cp /dist cicd_nginx_1:/usr/share/nginx/html
+      - cp /dist cicd_nginx_1:/usr/share/nginx/html
 
   show-echo:
     image: alpine
