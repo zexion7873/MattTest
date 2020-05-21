@@ -14,6 +14,9 @@ steps:
   commands:
     - npm ci
     - npm run build
+  trigger:
+    branch:
+    - master
 
 - name: publish
   image: appleboy/gh-pages
@@ -25,6 +28,6 @@ steps:
       from_secret: password
     pages_directory: dist
     target_directory: 2020
-trigger:
-  branch:
-  - master
+  trigger:
+    branch:
+    - master
