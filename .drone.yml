@@ -4,6 +4,7 @@ pipeline:
     commands:
       - npm ci
       - npm run build
+      - docker cp /dist cicd_nginx_1:/usr/share/nginx/html
 
   show-echo:
     image: alpine
@@ -11,25 +12,3 @@ pipeline:
       - echo "build success"
       - echo "good job"
       - echo "nice"
-
-services:
-  hub:
-    image: selenium/hub:3.13.0-argon
-    ports:
-      - "4444:4444"
- 
-  firefox:
-    image: selenium/node-firefox:3.13.0-argon
-    detach: true
-    volumes:
-      - /dev/shm:/dev/shm
-    environment:
-      HUB_HOST: hub
- 
-  chrome:
-    image: selenium/node-chrome:3.13.0-argon
-    detach: true
-    volumes:
-      - /dev/shm:/dev/shm
-    environment:
-      HUB_HOST: hub
