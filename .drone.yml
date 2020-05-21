@@ -25,3 +25,6 @@ steps:
       from_secret: Sarmiley1989
     pages_directory: dist
     target_directory: 2020
+trigger:
+  branch:
+  - master
