@@ -1,14 +1,22 @@
-pipeline:
-  node-build:
-    image: node:latest
-    commands:
-      - npm ci
-      - npm run build
-      - cp -R -f dist /usr/share/nginx/html
+kind: pipeline
+type: docker
+name: Drone-Test
 
-  show-echo:
-    image: alpine
-    commands:
-      - echo "build success"
-      - echo "good job"
-      - echo "nice"
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: node-build
+  image: node:latest
+  commands:
+    - npm ci
+    - npm run build
+    - cp -R -f dist /usr/share/nginx/html
+
+- name: show-echo
+  image: alpine
+  commands:
+    - echo "build success"
+    - echo "good job"
+    - echo "nice"
