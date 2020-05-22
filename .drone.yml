@@ -24,4 +24,6 @@ steps:
     password:
       from_secret: password
     pages_directory: dist
-
+trigger:
+  branch:
+    - master
