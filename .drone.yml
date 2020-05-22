@@ -19,7 +19,7 @@ steps:
     - master
 
 - name: publish
-  image: appleboy/gh-pages
+  image: plugins/gh-pages
   pull: always
   settings:
     username:
@@ -27,7 +27,6 @@ steps:
     password:
       from_secret: password
     pages_directory: dist
-    target_directory: 2020
-  trigger:
-    branch:
+trigger:
+  branch:
     - master

@@ -11,7 +11,8 @@ Vue.use(Router)
 
 export default new Router({
   // mode: 'hash',
-  base: process.env.ROOT_PATH,
+  mode: 'history',
+  base: '/MattTest/',
   routes: [
     {
       path: '/',
