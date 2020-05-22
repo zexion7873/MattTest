@@ -16,7 +16,7 @@ steps:
     - npm run build
 
 - name: publish
-  image: applebot/gh-pages
+  image: plugins/gh-pages
   pull: always
   settings:
     username:
