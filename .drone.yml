@@ -14,12 +14,9 @@ steps:
   commands:
     - npm ci
     - npm run build
-  trigger:
-    branch:
-    - master
 
 - name: publish
-  image: plugins/gh-pages
+  image: applebot/gh-pages
   pull: always
   settings:
     username:
@@ -27,6 +24,4 @@ steps:
     password:
       from_secret: password
     pages_directory: dist
-trigger:
-  branch:
-    - master
+
