@@ -12,7 +12,7 @@ Vue.use(Router)
 export default new Router({
   // mode: 'hash',
   mode: 'hash',
-  base: '/MattTest/',
+  base: 'MattTest/',
   routes: [
     {
       path: '/',
