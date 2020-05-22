@@ -1,7 +1,6 @@
 <template>
   <div id="home">
-    <hello-world></hello-world>
-    <a href="/scb/nps_close"><button>關閉視窗</button></a>
+    <h1>測試是否有成功部署</h1>
   </div>
 </template>
 
