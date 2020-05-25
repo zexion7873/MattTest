@@ -15,7 +15,7 @@ steps:
     - npm ci
     - npm run build
 
-- name: publish
+- name: deploy
   image: plugins/gh-pages
   pull: always
   settings:
