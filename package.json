@@ -13,7 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js --rootPath=/MattTest/",
     "build-local": "node build/build.js --rootPath=/MattTest/",
-    "selenium_test": "mocha test/selenium_test/click.spec.js"
+    "selenium_test": "mocha test/selenium_test/loginSuccess.js && mocha test/selenium_test/loginFail.js"
   },
   "dependencies": {
     "axios": "^0.19.2",

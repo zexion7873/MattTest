@@ -5,7 +5,7 @@
       <label>
         <small>Account</small>
         <div>
-          <input v-model="account">
+          <input type="text" v-model="account">
         </div>
       </label>
     </div>
@@ -13,7 +13,7 @@
     <label>
       <small>password</small>
       <div>
-        <input v-model="password">
+        <input type="password" v-model="password">
       </div>
     </label>
   </div>
@@ -32,10 +32,10 @@ export default {
   },
   methods: {
     confirm: function () {
-      if (this.account !== 'matt' && this.password !== 'matt') {
-        this.$router.push({name: 'success'})
+      if (this.account !== 'matt' || this.password !== 'matt') {
+        alert('登入失敗')
       } else {
-        alert('登入成功')
+        this.$router.push({name: 'success'})
       }
     }
   }
