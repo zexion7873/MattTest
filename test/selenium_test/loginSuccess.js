@@ -2,7 +2,7 @@
 const { Builder, By, Key, until } = require('selenium-webdriver')
 const assert = require('assert')
 
-describe('Login Success', function() {
+describe('LoginSuccess', function() {
   this.timeout(30000)
   let driver
   let vars
@@ -13,14 +13,15 @@ describe('Login Success', function() {
   afterEach(async function() {
     await driver.quit();
   })
-  it('Login Success', async function() {
-    await driver.get("https://sarmiley.github.io//MattTest/")
+  it('LoginSuccess', async function() {
+    await driver.get("https://sarmiley.github.io/MattTest/")
+    await driver.manage().window().setRect(1440, 801)
     await driver.findElement(By.css("p")).click()
     await driver.findElement(By.css(".type-area:nth-child(2) input")).click()
-    await driver.findElement(By.css(".type-area:nth-child(3) div")).click()
+    await driver.findElement(By.css(".type-area:nth-child(2) input")).sendKeys("matt")
+    await driver.findElement(By.css(".type-area:nth-child(3) input")).click()
     await driver.findElement(By.css(".type-area:nth-child(3) input")).sendKeys("matt")
     await driver.findElement(By.css("button")).click()
-    assert(await driver.switchTo().alert().getText() == "登入成功")
-    await driver.findElement(By.css(".type-area:nth-child(2) input")).sendKeys("matt")
+    await driver.findElement(By.css("html")).click()
   })
 })

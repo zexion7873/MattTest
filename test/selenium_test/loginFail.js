@@ -2,7 +2,7 @@
 const { Builder, By, Key, until } = require('selenium-webdriver')
 const assert = require('assert')
 
-describe('Login Fail', function() {
+describe('LoginFail', function() {
   this.timeout(30000)
   let driver
   let vars
@@ -13,14 +13,15 @@ describe('Login Fail', function() {
   afterEach(async function() {
     await driver.quit();
   })
-  it('Login Fail', async function() {
+  it('LoginFail', async function() {
     await driver.get("https://sarmiley.github.io/MattTest/")
     await driver.manage().window().setRect(1440, 801)
     await driver.findElement(By.css("p")).click()
     await driver.findElement(By.css(".type-area:nth-child(2) input")).click()
-    await driver.findElement(By.css(".type-area:nth-child(2) input")).sendKeys("mmatt123")
+    await driver.findElement(By.css(".type-area:nth-child(2) input")).sendKeys("qwert")
     await driver.findElement(By.css(".type-area:nth-child(3) input")).click()
-    await driver.findElement(By.css(".type-area:nth-child(3) input")).sendKeys("mmm1234")
+    await driver.findElement(By.css(".type-area:nth-child(3) input")).sendKeys("asdfg")
     await driver.findElement(By.css("button")).click()
+    assert(await driver.switchTo().alert().getText() == "登入失敗")
   })
 })
