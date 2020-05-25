@@ -27,7 +27,7 @@ steps:
 
 - name: selenium_test
   image: node:latest
-  command: 
+  commands: 
     - npm ci
     - npm run selenium_test
 trigger:
