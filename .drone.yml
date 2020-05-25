@@ -15,7 +15,7 @@ steps:
     - npm ci
     - npm run build
 
-- name: deploy
+- name: deploy_ghpages
   image: plugins/gh-pages
   pull: always
   settings:
@@ -24,6 +24,11 @@ steps:
     password:
       from_secret: password
     pages_directory: dist
+
+- name: selenium_test
+  image: node:latest
+  command: 
+
 trigger:
   branch:
     - master

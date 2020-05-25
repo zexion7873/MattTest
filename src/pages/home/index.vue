@@ -1,11 +1,8 @@
 <template>
   <div id="home">
     <h1>測試是否有成功部署</h1>
-    <router-link :to="{name: 'NPS_EN'}">
-      <p>NPS EN</p>
-    </router-link>
-     <router-link :to="{name: 'NPS_TW'}">
-      <p>NPS TW</p>
+    <router-link :to="{name: 'login'}">
+      <p>Login</p>
     </router-link>
   </div>
 </template>

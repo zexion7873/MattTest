@@ -12,10 +12,14 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js --rootPath=/MattTest/",
-    "build-local": "node build/build.js --rootPath=/MattTest/"
+    "build-local": "node build/build.js --rootPath=/MattTest/",
+    "selenium_test": "mocha test/selenium_test/click.spec.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "mocha": "^7.2.0",
+    "selenium-webdriver": "^4.0.0-alpha.7",
+    "should": "^13.2.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
