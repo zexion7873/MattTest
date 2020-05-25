@@ -33,7 +33,7 @@ export default {
   methods: {
     confirm: function () {
       if (this.account !== 'matt' && this.password !== 'matt') {
-        alert('登入失敗')
+        this.$router.push({name: 'success'})
       } else {
         alert('登入成功')
       }
