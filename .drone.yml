@@ -28,9 +28,8 @@ steps:
 - name: selenium_test
   image: node:latest
   commands: 
-    - npm ci
     - npm run selenium_test
-    
+
 trigger:
   branch:
     - master
