@@ -2,7 +2,7 @@
 const { Builder, By, Key, until } = require('selenium-webdriver')
 const assert = require('assert')
 
-describe('LoginSuccess', function() {
+describe('loginSuccess', function() {
   this.timeout(30000)
   let driver
   let vars
@@ -13,7 +13,7 @@ describe('LoginSuccess', function() {
   afterEach(async function() {
     await driver.quit();
   })
-  it('LoginSuccess', async function() {
+  it('loginSuccess', async function() {
     await driver.get("https://sarmiley.github.io/MattTest/")
     await driver.manage().window().setRect(1440, 801)
     await driver.findElement(By.css("p")).click()
