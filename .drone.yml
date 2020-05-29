@@ -9,7 +9,6 @@ pipeline:
 
   deploy_ghpages:
     image: plugins/gh-pages
-    pull: always
     settings:
       username:
         from_secret: username
