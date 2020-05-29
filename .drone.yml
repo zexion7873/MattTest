@@ -1,50 +1,35 @@
-pipeline:
-  node-build:
-    image: node:latest
-    environment:
-      NODE_ENV: gh-pages
-    commands:
-      - npm ci
-      - npm run build
+kind: pipeline
+type: docker
+name: Drone-Test
 
-  deploy_ghpages:
-    image: plugins/gh-pages
-    settings:
-      username:
-        from_secret: username
-      password:
-        from_secret: password
-      pages_directory: dist
+platform:
+  os: linux
+  arch: amd64
 
-  selenium_test:
-    image: node:latest
-    commands: 
-      - npm run selenium_test
+steps:
+- name: node-build
+  image: node:latest
+  environment:
+    NODE_ENV: gh-pages
+  commands:
+    - npm ci
+    - npm run build
 
-  services: 
-    selenium-hub:
-      image: selenium/hub
-      ports:
-        - "4444:4444"
-  
-    firefox:
-      image: selenium/node-firefox
-      depends_on:
-        - selenium-hub
-      volumes:
-        - /dev/shm:/dev/shm
-      environment:
-        HUB_HOST: selenium-hub
-  
-    chrome:
-      image: selenium/node-chrome
-      depends_on:
-        - selenium-hub
-      volumes:
-        - /dev/shm:/dev/shm
-      environment:
-        HUB_HOST: selenium-hub
+- name: deploy_ghpages
+  image: plugins/gh-pages
+  pull: always
+  settings:
+    username:
+      from_secret: username
+    password:
+      from_secret: password
+    pages_directory: dist
 
-  trigger:
-    branch:
-      - master
+- name: selenium_test
+  image: node:latest
+  commands: 
+    - npm run selenium_test
+
+trigger:
+  branch:
+    - master
