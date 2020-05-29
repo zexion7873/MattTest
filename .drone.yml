@@ -1,59 +1,51 @@
-kind: pipeline
-type: docker
-name: Drone-Test
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: node-build
-  image: node:latest
-  environment:
-    NODE_ENV: gh-pages
-  commands:
-    - npm ci
-    - npm run build
-
-- name: deploy_ghpages
-  image: plugins/gh-pages
-  pull: always
-  settings:
-    username:
-      from_secret: username
-    password:
-      from_secret: password
-    pages_directory: dist
-
-- name: selenium_test
-  image: node:latest
-  commands: 
-    - npm run selenium_test
-
-- services: 
-  selenium-hub:
-    image: selenium/hub
-    ports:
-      - "4444:4444"
- 
-  firefox:
-    image: selenium/node-firefox
-    depends_on:
-      - selenium-hub
-    volumes:
-      - /dev/shm:/dev/shm
+pipeline:
+  node-build:
+    image: node:latest
     environment:
-      HUB_HOST: selenium-hub
- 
-  chrome:
-    image: selenium/node-chrome
-    depends_on:
-      - selenium-hub
-    volumes:
-      - /dev/shm:/dev/shm
-    environment:
-      HUB_HOST: selenium-hub
+      NODE_ENV: gh-pages
+    commands:
+      - npm ci
+      - npm run build
 
-trigger:
-  branch:
-    - master
+  deploy_ghpages:
+    image: plugins/gh-pages
+    pull: always
+    settings:
+      username:
+        from_secret: username
+      password:
+        from_secret: password
+      pages_directory: dist
+
+  selenium_test:
+    image: node:latest
+    commands: 
+      - npm run selenium_test
+
+  services: 
+    selenium-hub:
+      image: selenium/hub
+      ports:
+        - "4444:4444"
+  
+    firefox:
+      image: selenium/node-firefox
+      depends_on:
+        - selenium-hub
+      volumes:
+        - /dev/shm:/dev/shm
+      environment:
+        HUB_HOST: selenium-hub
+  
+    chrome:
+      image: selenium/node-chrome
+      depends_on:
+        - selenium-hub
+      volumes:
+        - /dev/shm:/dev/shm
+      environment:
+        HUB_HOST: selenium-hub
+
+  trigger:
+    branch:
+      - master
