@@ -9,39 +9,12 @@ pipeline:
 
   selenium_test:
     image: node:latest
-    networks:
-      - drone-pipeline
     commands: 
       - npm run selenium_test
 
 services:
-  selenium-hub:
-    image: selenium/hub
-    networks:
-     - drone-pipeline
-    ports:
-      - "4444:4444"
- 
-  firefox:
-    image: selenium/node-firefox
-    depends_on:
-      - selenium-hub
-    volumes:
-      - /dev/shm:/dev/shm
-    environment:
-      HUB_HOST: selenium-hub
- 
-  chrome:
-    image: selenium/node-chrome
-    depends_on:
-      - selenium-hub
-    volumes:
-      - /dev/shm:/dev/shm
-    environment:
-      HUB_HOST: selenium-hub
-
-networks:
-  drone-pipeline:
+  selenium:
+   image: selenium/standalone-chrome
 
 trigger:
   branch:
