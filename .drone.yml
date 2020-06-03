@@ -1,16 +1,34 @@
-pipeline:
-  node-build:
-    image: node:latest
-    environment:
-      NODE_ENV: gh-pages
-    commands:
-      - npm ci
-      - npm run build
+kind: pipeline
+type: docker
+name: Drone-Test
 
-  selenium_test:
-    image: node:latest
-    commands: 
-      - npm run selenium_test
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: node-build
+  image: node:latest
+  environment:
+    NODE_ENV: gh-pages
+  commands:
+    - npm ci
+    - npm run build
+
+- name: deploy_ghpages
+  image: plugins/gh-pages
+  pull: always
+  settings:
+    username:
+      from_secret: username
+    password:
+      from_secret: password
+    pages_directory: dist
+
+- name: selenium_test
+  image: node:latest
+  commands: 
+    - npm run selenium_test
 
 services:
   selenium:
