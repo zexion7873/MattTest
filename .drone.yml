@@ -2,7 +2,7 @@ pipeline:
   node-build:
     image: node:latest
     environment:
-      NODE_ENV: gh-pages
+      NODE_ENV: deploy_ghpages
     commands:
       - npm ci
       - npm run build
