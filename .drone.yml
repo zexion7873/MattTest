@@ -27,8 +27,13 @@ steps:
 
 - name: selenium_test
   image: node:latest
+  networks:
+    - drone-pipeline
   commands: 
     - npm run selenium_test
+
+networks:
+  drone-pipeline:
 
 trigger:
   branch:
