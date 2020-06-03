@@ -39,7 +39,10 @@ services:
       - /dev/shm:/dev/shm
     environment:
       HUB_HOST: selenium-hub
-          
+
+networks:
+  drone-pipeline:
+
 trigger:
   branch:
     - master
