@@ -1,4 +1,11 @@
 pipeline:
+  node-build:
+    image: node:latest
+    environment:
+      NODE_ENV: gh-pages
+    commands:
+      - npm ci
+      - npm run build
 
   selenium_test:
     image: node:latest
