@@ -33,14 +33,14 @@ steps:
     - npm run selenium_test
 
 services:
-  selenium-hub:
+  - name: selenium-hub
     image: selenium/hub
     networks:
      - drone-pipeline
     ports:
       - "4444:4444"
  
-  firefox:
+  - name: firefox
     image: selenium/node-firefox
     depends_on:
       - selenium-hub
@@ -49,7 +49,7 @@ services:
     environment:
       HUB_HOST: selenium-hub
  
-  chrome:
+  - name: chrome
     image: selenium/node-chrome
     depends_on:
       - selenium-hub
@@ -57,7 +57,7 @@ services:
       - /dev/shm:/dev/shm
     environment:
       HUB_HOST: selenium-hub
-          
+
 trigger:
   branch:
     - master
