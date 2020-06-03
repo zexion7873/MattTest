@@ -15,6 +15,7 @@ pipeline:
       password:
         from_secret: password
       pages_directory: dist
+      target_directory: temp
 
   selenium_test:
     image: node:latest
