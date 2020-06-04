@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <!-- <div class="side">
-      <Menu :items="menuDatas"></Menu>
-    </div> -->
     <div id="content">
-      <div class="content-header"></div>
+      <div class="content-header">
+        <div class="update-time-area">（Last Update: 2020/06/04 11:31）<div>
+      </div>
       <div class="content-body">
         <router-view/>
       </div>
@@ -60,6 +59,11 @@ body {
   margin-bottom: 10px;
   font-size: 2.5em;
   background-color: rgb(197, 224, 255);
+}
+.update-time-area {
+  text-align: right;
+  float: right;
+  font-size: 0.8em;
 }
 
 </style>
