@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <h1>測試是否有成功部署</h1>
+    <h1>登入 （Last Update: 2020/06/04 11:21）</h1>
     <router-link :to="{name: 'login'}">
       <p>Login</p>
     </router-link>
