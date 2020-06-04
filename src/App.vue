@@ -2,7 +2,7 @@
   <div id="app">
     <div id="content">
       <div class="content-header">
-        <div class="update-time-area">（Last Update: 2020/06/04 11:31）</div>
+        <div class="update-time-area">（Last Update: 2020/06/18 19:42）</div>
       </div>
       <div class="content-body">
         <router-view/>
