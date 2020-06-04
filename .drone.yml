@@ -31,7 +31,7 @@ steps:
     - npm run selenium_test
 
 services:
-  - name: selenium
+  - name: selenium-service
     image: selenium/standalone-chrome
 
 trigger:
