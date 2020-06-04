@@ -63,7 +63,7 @@ body {
 .update-time-area {
   text-align: right;
   float: right;
-  font-size: 0.8em;
+  font-size: 0.3em;
 }
 
 </style>
